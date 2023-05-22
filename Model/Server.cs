@@ -11,7 +11,6 @@ namespace ServerDistances.Model
         public string name { get; set; }
         public int distance { get; set; }
 
-        //public Server() { }
         public Server(string name, int distance)
         {
             this.name = name;
