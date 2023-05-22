@@ -28,8 +28,6 @@ namespace ServerDistances
             log.Info("Initializing main window");
             InitializeComponent();
 
-            Console.WriteLine("XD");
-
             MainViewModel mainViewModel = new MainViewModel();
             DataContext = mainViewModel;
         }
