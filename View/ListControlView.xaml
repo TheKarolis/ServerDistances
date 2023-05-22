@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="ServerDistances.View.ListControlView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ServerDistances.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Button Grid.Column="0" 
+                    Content="Get servers data from web" 
+                    Click="GetFromWebButtonClick"/>
+            <Button Grid.Column="1" 
+                    Content="Get servers data from DB" 
+                    Click="GetFromDBButtonClick"/>
+        </Grid>
+        
+        <DataGrid Grid.Row="1" 
+                  ItemsSource="{Binding ServersObservableList}"
+                  FrozenColumnCount="2"
+                  AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" 
+                                    Binding="{Binding name}"
+                                    Width="*"/>
+                <DataGridTextColumn Header="Distance" 
+                                    Binding="{Binding distance}"
+                                    Width="*"/>
+            </DataGrid.Columns>
+            
+        </DataGrid>
+
+        <!--<ListView Grid.Row="1" ItemsSource="{Binding ServersObservableList}">
+            
+        </ListView>-->
+
+    </Grid>
+</UserControl>
