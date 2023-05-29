@@ -18,8 +18,6 @@ namespace ServerDistances.ViewModel
             this.client = client;
         }
 
-
-
         public ListControlViewModel() { }
 
         ClientLogic.Client client;
@@ -53,8 +51,6 @@ namespace ServerDistances.ViewModel
             ServersObservableList = new ObservableCollection<Model.Server>(servers);
             OnPropertyChanged(nameof(ServersObservableList));
         }
-
-
 
         protected virtual void OnPropertyChanged(string propertyName)
         {

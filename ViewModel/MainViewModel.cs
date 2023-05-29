@@ -25,8 +25,6 @@ namespace ServerDistances.ViewModel
         public AuthenticationViewModel AuthenticationViewModel { get { return _authenticationViewModel; } }
         public ListControlViewModel ListControlViewModel { get { return _listControlViewModel; } }
         
-
-
         protected virtual void OnPropertyChanged(string propertyName)
         {
             if(PropertyChanged != null)
