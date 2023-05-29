@@ -10,9 +10,9 @@ using System.Windows;
 
 namespace ServerDistances.ViewModel
 {
-    class ListControlViewModel : INotifyPropertyChanged
+    class ListControlViewModel : BaseViewModel
     {
-        public ListControlViewModel(ref ClientLogic.Client client)
+        public ListControlViewModel(ClientLogic.Client client)
         {
             this.client = new ClientLogic.Client();
             this.client = client;
@@ -51,13 +51,5 @@ namespace ServerDistances.ViewModel
             ServersObservableList = new ObservableCollection<Model.Server>(servers);
             OnPropertyChanged(nameof(ServersObservableList));
         }
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        public event PropertyChangedEventHandler? PropertyChanged = delegate { };
     }
 }

@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace ServerDistances.ViewModel
 {
-    class MainViewModel : INotifyPropertyChanged
+    class MainViewModel : BaseViewModel
     {
         public MainViewModel()
         {
             client = new ClientLogic.Client();
-            _authenticationViewModel = new AuthenticationViewModel(ref client);
-            _listControlViewModel = new ListControlViewModel(ref client);
+            _authenticationViewModel = new AuthenticationViewModel(client);
+            _listControlViewModel = new ListControlViewModel(client);
         }
 
         ClientLogic.Client client;
@@ -24,13 +24,5 @@ namespace ServerDistances.ViewModel
 
         public AuthenticationViewModel AuthenticationViewModel { get { return _authenticationViewModel; } }
         public ListControlViewModel ListControlViewModel { get { return _listControlViewModel; } }
-        
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            if(PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        public event PropertyChangedEventHandler? PropertyChanged = delegate { };
     }
 }

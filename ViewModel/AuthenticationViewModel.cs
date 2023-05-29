@@ -9,13 +9,10 @@ using System.Threading.Tasks;
 
 namespace ServerDistances.ViewModel
 {
-    class AuthenticationViewModel : INotifyPropertyChanged
+    class AuthenticationViewModel : BaseViewModel
     {
-        private static readonly log4net.ILog log = log4net.LogManager
-            .GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-
         ClientLogic.Client client = new ClientLogic.Client();
-        public AuthenticationViewModel(ref ClientLogic.Client client)
+        public AuthenticationViewModel(ClientLogic.Client client)
         {
             client = new ClientLogic.Client();
             this.client = client;
@@ -46,13 +43,5 @@ namespace ServerDistances.ViewModel
         }
 
         public string Name { get; set; }
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        public event PropertyChangedEventHandler? PropertyChanged = delegate { };
     }
 }
