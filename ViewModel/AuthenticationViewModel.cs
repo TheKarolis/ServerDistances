@@ -44,6 +44,7 @@ namespace ServerDistances.ViewModel
 
             log.Info("Authentication attempt result: " + FailureLabel);
         }
+
         public string Name { get; set; }
 
         protected virtual void OnPropertyChanged(string propertyName)
