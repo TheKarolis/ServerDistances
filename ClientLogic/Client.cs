@@ -69,7 +69,6 @@ namespace ServerDistances.ClientLogic
                 isAuthentified = false;
                 return false;
             }
-            return false;
         }
 
         /// <summary>
